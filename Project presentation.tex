@@ -1,0 +1,351 @@
+\documentclass{beamer}
+\usepackage{listings}
+\usepackage{blkarray}
+\usepackage{listings}
+\usepackage{subcaption}
+\usepackage{url}
+\usepackage{tikz}
+\usepackage{tkz-euclide} % loads  TikZ and tkz-base
+%\usetkzobj{all}
+\usetikzlibrary{calc,math}
+\usepackage{float}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\usepackage[export]{adjustbox}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usepackage{bm}
+\hypersetup{
+    colorlinks = true,
+    linkbordercolor = {white},
+    linkcolor={red},
+    citecolor={green},
+    filecolor={blue},
+	menucolor={red},
+	runcolor={cyan},
+	urlcolor={blue},
+	breaklinks=true
+}
+\usetikzlibrary{automata, positioning}
+\usetheme{Boadilla}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\mbf}{\mathbf}
+\providecommand{\qfunc}[1]{\ensuremath{Q\left(#1\right)}}
+\providecommand{\sbrak}[1]{\ensuremath{{}\left[#1\right]}}
+\providecommand{\lsbrak}[1]{\ensuremath{{}\left[#1\right.}}
+\providecommand{\rsbrak}[1]{\ensuremath{{}\left.#1\right]}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\lbrak}[1]{\ensuremath{\left(#1\right.}}
+\providecommand{\rbrak}[1]{\ensuremath{\left.#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\providecommand{\lcbrak}[1]{\ensuremath{\left\{#1\right.}}
+\providecommand{\rcbrak}[1]{\ensuremath{\left.#1\right\}}}
+\providecommand{\abs}[1]{\vert#1\vert}
+
+\newcounter{saveenumi}
+\newcommand{\seti}{\setcounter{saveenumi}{\value{enumi}}}
+\newcommand{\conti}{\setcounter{enumi}{\value{saveenumi}}}
+
+\makeatletter
+\newenvironment<>{proofs}[1][\proofname]{%
+    \par
+    \def\insertproofname{#1\@addpunct{.}}%
+    \usebeamertemplate{proof begin}#2}
+  {\usebeamertemplate{proof end}}
+\makeatother
+
+\title{Research Paper Presentation}
+\author{Yuvraj Singh Shekhawat}
+\date{CS20BTECH11057}
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{Title and authors}
+\begin{block}{Title}
+IoT-based Smart Home Device Monitor Using
+Private Blockchain Technology and Localization
+\end{block}
+\begin{block}{Authors}
+\begin{enumerate}
+\item Marc Jayson Baucas, Student Member, IEEE
+\item Stephen Andrew Gadsden, Senior Member, IEEE
+\item Petros Spachos, Senior Member, IEEE
+\end{enumerate}
+\end{block}
+\end{frame}
+
+\begin{frame}{Abstract}
+\begin{enumerate}
+\item Internet of Things (IoT)-based smart home applications
+are rising in popularity. However, this trend attracts malicious activity, which causes cost-efficient security to be in high demand.
+\item This paper proposes a low-end design that reinforces the
+security of a home network.
+\item It uses private blockchain technology
+and localization via RSSI-based trilateration.
+\item We improve the precision of the localization algorithm by testing it against different wireless technologies.
+\item The results conclude that using a private blockchain with a WiFi-based communication system produces the most efficient iteration of the proposed design
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Definitions}
+\begin{itemize}
+\item \textbf{IOT} : The Internet of Things (IoT) refers to a system of interrelated, internet-connected objects that are able to collect and transfer data over a wireless network without human intervention.
+\item \textbf{Blockchain Technology} : A system of recording information in a way that makes it difficult or impossible to change, hack, or cheat the system.
+\item \textbf{RSSI} : Received Signal Strength Indicator is a measurement of the power present in a received radio signal.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Abbreviations}
+
+\end{frame}
+
+\begin{frame}{Introduction}
+\begin{enumerate}
+\item Several smart home services relying on using Internet of
+Things (IOT) devices.
+\item  Implemented services such as remove
+surveillance and personal data storage create a network of
+devices that provide control over the different smart systems
+within the house.
+\item Many home networks fall
+victim to attackers that infiltrate the server and tamper with it
+\item We use the built-in protocol of private blockchains to create a tamper-proof and secure administrator.
+\item However it cannot pinpoint the source of malicious activity in terms of location.
+\item To improve this, we propose the use of a location based filter via distance trilateration using the Received Signal
+Strength Indicator (RSSI).
+\item To further improve the
+precision of the collected RSSI values, we chose to incorporate Kalman filtering to manage the raw data.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{ Smart-Home security based on IOT}
+\begin{enumerate}
+\item  It is a wireless home network that
+provides services and applications developed for improved
+health, comfort, and user safety
+\item The amount of data within it is vulnerable to intrusive attacks in terms of regulating device access. Therefore, by adding a secure medium that monitors the devices attempting to access the network, data can remain private.
+\item By using client impersonation Hackers can gain complete control over the remote services.
+\item A three-layer intrusion detection system (IDS) is proposed that uses a supervised machine learning approach
+to detect cyber-attacks on IoT networks. Although these designs, on their own, can detect an attack without knowing where the attack is coming from, it is not possible to implement further prevention.
+\item Therefore, our proposed framework adapts to these designsusing indoor localization via RSSI trilateration via Kalman filtering to add the ability to trace the sources of the attack.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Blockchain}
+\begin{enumerate}
+\item Blockchains are data structures composed of a chain of
+blocks that are cryptographically linked. 
+\item Blockchains can automate their processing
+with the incorporation of smart contracts. A smart contract is
+a term-based transaction protocol with a defined function and
+an assigned activation agreement.
+\item Blockchains use a consensus process called \emph{Mining} to determine the actions and changes carried out within their system. We plan to use this process to filter and give access to connecting devices in the network.
+\item There are two models of authentication in Blockchains:
+public and private.
+\item  A public blockchain relies on a proof of-work system. This system requires incoming users to solve a provided algorithm to grant them voting rights to be in
+the mining process.
+\seti
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{}
+\begin{enumerate}
+\conti
+\item Executing this complex algorithm requires
+high processing power, which is not ideal for IOT devices due
+to their processor constraints.
+\item A private Blockchain uses a built-in trust-based access layer to authorize users. This feature eliminates the need for a proof-of-work system but as the ledger grows, latency becomes an issue. 
+\item  Therefore, there is a visible trade between the two
+blockchains in terms of latency and resource management.
+Since our proposed network is for a smaller group of users
+and low-end devices, a private blockchain is better.
+\item We will integrate RSSI-based indoor localization via trilateration to further improve the detection system of the network.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{RSSI-based Indoor Localization via Trilateration}
+\begin{enumerate}
+\item Wireless Indoor localization is a concept of determining the location of a point of interest (POI) within a controlled environment.
+\item Trilateration is a method that is for localization. It uses the distances between a point of interest and three known points also known as anchor nodes, to solve for the position of this point on a 2-dimensional plane.
+\item However, wireless signals are still subject to noise as the number of potential sources of interference within an area
+increases. Therefore, to ensure that the localization of
+these points of interest is accurate, Kalman filtering is used.
+\item A Kalman filter (KF) is an estimating algorithm commonly
+used for linear systems. A standard KF was
+selected to model this algorithm due to the linearity of distance and localization via RSSI.
+\item A standard KF uses the state estimate \brak{\hat{x}} and the state estimate covariance \brak{P}. The state estimate is the predicted future value of the system. The state estimate covariance is the approximated accuracy of the state estimate.
+\seti
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{}
+\begin{enumerate}
+\conti
+\item The filtering process of a KF is composed of two steps: the predicting and updating step.
+\item The prediction step estimates the next state estimate and covariance values of the system in its current time index, $k$. The process is
+\begin{align}
+\hat{x}_{k+1|k}=A_{k}\hat{x}_{k}+A_{k}u_{k}\\
+P_{k+1|k}=A_{k}P_{k}{A_{k}}^{T}+Q_{k}
+\end{align}
+Using the system model \brak{A}, measurement model \brak{B}, control input \brak{u} and noise covariance \brak{Q}.
+\item The updating step is carried out by first solving for the Kalman gain (K) as:
+\begin{align}
+K_{k+1}=P_{k+1|k}{C_{k+1}}^{T}\brak{{C_{k+1}}P_{k+1|k}{C_{k+1}}^{T}+{R_{k+1}}}
+\end{align}
+\item This equation introduces the measurement sensitivity \brak{C} and measurement error covariance \brak{R}.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{System Components}
+\begin{enumerate}
+\conti
+\item The proposed design uses Raspberry Pi 3 Model B’s as
+its main centre of operations for data filtering. It serves as
+the anchors that create the perimeter around the network.
+We selected this device due to its modularity and rapid
+prototyping.
+\item The Pis were to represent the devices and
+appliances within a smart home. Some smart devices have
+the bare minimum to have a compact and optimized design.
+Therefore, to simulate these low-cost devices, we chose to use
+a Pi.
+\item We programmed each Pi with the same Raspbian-Jesse OS
+image. We used Python 3.7 in incorporating software
+components needed in the design. These main parts include the
+blockchain and the Kalman filter. 
+\item The blockchain component is programmed using python initialized upon executing the Pi.
+Each blockchain contains the same configuration and list of
+trusted devices.
+\seti
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{}
+\begin{enumerate}
+\conti
+\item Within each anchor are its unique identifier
+and geographical position on the network. 
+\item We embedded the Kalman filter within the blockchain class as a smart contract triggered by a data transaction. The RSSI values is for calculating the location of each device.
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/Anchor.jpg}
+    \caption{Room setup for access layer testbed showing anchor locations and point of interest}
+\end{figure}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Testbed}
+\begin{enumerate}
+\item We tested each aspect of the access layer separately to
+optimize the proposed design. More Pis can be added to the testbed to model more complex infrastructures but that will disturb the plausibility of the design foundation.
+\item The first test compares efficiency of public and private blockchains. The metric used is the memory, processor usage, and execution time. The test is designed with a device requesting access to the server through an anchor. Each anchor consults the blockchain with which users are allowed to connect. 
+\item For the public blockchain, it processes the request through proof of work. As for private blockchains, the anchor will attempt to consult through the trusted ledger. We preloaded the blockchains with the identification of devices that are authorized to access the network. 
+
+
+
+
+
+\seti 
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{}
+\begin{enumerate}
+\item Obtaining the physical memory usage was through a python library called memory-profiler. Meanwhile, we used the built-in CPU usage Monitor of the Pi to get the processor usage. As for execution time, it is the elapsed time between a device sends a request and the anchor responds.
+\begin{center}
+\begin{table}[h]
+    \centering
+    \scalebox{1}{
+    \resizebox{\columnwidth}{!}{
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Blockchain Type} & \textbf{Memory Usage (MB)} & \textbf{CPU Usage\brak{\%}} & \textbf{Execution Time \brak{s}} \\
+\hline
+Private & $12.20$ & $11$ & $0.00021$\\
+\hline
+Public & $12.37$ & $25$ & $25.89$ \\
+\hline
+\end{tabular}
+}
+}
+\caption{ Memory usage and execution time results of the
+blockchain tests}
+\end{table}
+
+\end{center}
+\seti
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{}
+\begin{enumerate}
+\conti
+\item We carried out the second test by focusing on the localization via a trilateration filter. 
+We will decide between BLE, WiFi, or ZigBee
+to maximize the capabilities of the Kalman filter
+We set up the BLE transmissions using the built-in Bluetooth drivers within the Pis. 
+\item We calculated the distance with parameters calibrated based on the hardware specifications of the wireless components used with the Pis. 
+\item All technologies used a 2.00 Path Loss Factor.
+For the system loss constant, BLE uses -56, WiFi uses -45,
+and XBee uses 18. To compare the precision of the different
+wireless technologies, we calculated the Root Mean Squared
+Error (RMSE) as
+\begin{align}
+ RMSE=\sqrt{\frac{\sum_{1}^{n}\brak{P_i-O_i}^2}{n}} 
+\end{align}
+\seti
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{}
+\begin{enumerate}
+\conti where $P$ represents the predicted value and $O$ is the observed under $n$ time samples. RMSE highlights the impact of the Kalman filter in maintaining the consistency of the distance calculations.
+\end{enumerate}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/RMSE Comparison.jpg}
+    \caption{RMSE of RSSI values from WiFi, XBee, and BLE}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Blockchain evaluation}
+\begin{enumerate}
+    \item  We conducted test for blockchain comparison of the anchor accessing each blockchain type. The 20 iterations of the test gave nearly same result in Table I.
+    \item In terms of memory usage, both types of blockchains use relatively the same amount of memory. However, accessing the private blockchain takes $14\%$ less CPU usage than its public counterpart. This difference shows how private blockchains take fewer resources to run on the Raspberry Pi.
+    \item A transaction between the anchor and the public blockchain takes 25 seconds. Meanwhile, the private blockchain is 0.21 milliseconds.
+    \item Due tothe expected volume of transactions between the anchor and the blockchain, a lower resource demand and execution time is better. Therefore, choosing to use private blockchains in the proposed design proves to be better.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Frame Title}
+    \begin{enumerate}
+        \item We tested the proposed design based on its precision in estimating the distance between an anchor and a point of interest. The testbed has the device at varying distances from the anchor on a flat plane.
+        \item The values used in the tests were: $0.25$, $0.50$ and $1$m. 
+        \item The RSSI RMSE results of each wireless
+        technology are shown in Fig. 2 as collected over 100 samples.
+        \item Comparing the three technologies, XBee had the best results in terms of distances closer to the device but failed in RSSI consistency.
+        \item For BLE, it showed the most inconsistent RSSI
+        values among the three. 
+        \item Meanwhile, WiFi yielded the most consistent RSSI reported among the three technologies.
+        Overall, WiFi had the best results in minimizing the effect of the actual distance to the precision of the calculated value.
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Conclusion}
+\begin{enumerate}
+    \item The proposed design is a combination of private blockchain technology and localization via RSSI-based trilateration. It aims to create an access layer that can increase the security of home networks. 
+    \item We conducted two tests to check which technologies were more optimal. The first was to compare the
+    presented types of blockchains for memory usage, CPU
+    usage and execution times. The results show that private blockchains proved to be better for the design. 
+    \item The second test checks which communication medium among BLE, WiFi, and ZigBee yielded the most precise RSSI generation. The results showed that WiFi stayed the most consistent. 
+    \item Therefore, the design is more optimized by integrating private blockchains over public and WiFi for RSSI measurements. Overall, the design has proven its plausibility as an access layer that reinforces security for smart home networks.
+\end{enumerate}
+\end{frame}
+\end{document}
